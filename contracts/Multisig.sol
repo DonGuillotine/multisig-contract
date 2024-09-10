@@ -121,4 +121,26 @@ contract Multisig {
 
         emit QuorumUpdateProposed(_newQuorum);
     }
+
+    function approveQuorumUpdate() external {
+        require(isValidSigner[msg.sender], "Not a valid signer");
+        require(quorumUpdateProposalId != 0, "No quorum update proposal");
+        require(!hasApprovedQuorumUpdate[msg.sender], "Already approved");
+
+        hasApprovedQuorumUpdate[msg.sender] = true;
+        quorumUpdateApprovals++;
+
+        if (quorumUpdateApprovals == quorum) {
+            uint8 oldQuorum = quorum;
+            quorum = proposedQuorum;
+            emit QuorumUpdated(oldQuorum, quorum);
+            
+            quorumUpdateProposalId = 0;
+            proposedQuorum = 0;
+            quorumUpdateApprovals = 0;
+            for (uint i = 0; i < noOfValidSigners; i++) {
+                hasApprovedQuorumUpdate[address(uint160(i))] = false;
+            }
+        }
+    }
 }
