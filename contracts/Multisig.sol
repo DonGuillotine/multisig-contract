@@ -11,6 +11,9 @@ contract Multisig {
     mapping(address => bool) public hasApprovedQuorumUpdate;
     uint8 public quorumUpdateApprovals;
 
+    event QuorumUpdateProposed(uint8 newQuorum);
+    event QuorumUpdated(uint8 oldQuorum, uint8 newQuorum);
+
     struct Transaction {
         uint256 id;
         uint256 amount;
