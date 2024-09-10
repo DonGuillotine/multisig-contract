@@ -6,6 +6,10 @@ contract Multisig {
     uint8 public quorum;
     uint8 public noOfValidSigners;
     uint256 public txCount;
+    uint256 public quorumUpdateProposalId;
+    uint8 public proposedQuorum;
+    mapping(address => bool) public hasApprovedQuorumUpdate;
+    uint8 public quorumUpdateApprovals;
 
     struct Transaction {
         uint256 id;
