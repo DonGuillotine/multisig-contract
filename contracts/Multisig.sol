@@ -107,4 +107,18 @@ contract Multisig {
             IERC20(trx.tokenAddress).transfer(trx.recipient, trx.amount);
         }
     }
+
+    function proposeQuorumUpdate(uint8 _newQuorum) external {
+        require(isValidSigner[msg.sender], "Not a valid signer");
+        require(_newQuorum > 1 && _newQuorum <= noOfValidSigners, "Invalid quorum value");
+        require(_newQuorum != quorum, "New quorum must be different");
+        require(quorumUpdateProposalId == 0, "Existing proposal pending");
+
+        quorumUpdateProposalId = block.timestamp;
+        proposedQuorum = _newQuorum;
+        quorumUpdateApprovals = 1;
+        hasApprovedQuorumUpdate[msg.sender] = true;
+
+        emit QuorumUpdateProposed(_newQuorum);
+    }
 }
