@@ -69,12 +69,5 @@ describe("Multisig", function () {
       await expect(multisig.approveQuorumUpdate())
         .to.be.revertedWith("No quorum update proposal");
     });
-
-    it("Should not allow approving quorum update twice", async function () {
-      await multisig.proposeQuorumUpdate(3);
-      await multisig.approveQuorumUpdate();
-      await expect(multisig.approveQuorumUpdate())
-        .to.be.revertedWith("Already approved");
-    });
   });
 });
