@@ -143,4 +143,5 @@ contract Multisig {
             }
         }
     }
+    receive() external payable {}
 }
