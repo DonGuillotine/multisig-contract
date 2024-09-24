@@ -77,7 +77,7 @@ npx hardhat test
 
 ### Deploying the Contracts
 
-Use the `deploy.js` script to deploy the contracts on the blockchain:
+Use the `deploy.js` script to deploy the contracts on the blockchain, feel free to use any testnet or mainnet of your choice (For Mainnet deployment, test the code thoroughly and audit):
 ```bash
 npx hardhat run scripts/deploy.js --network sepolia
 ```
