@@ -79,42 +79,42 @@ npx hardhat test
 
 Use the `deploy.js` script to deploy the contracts on the blockchain, feel free to use any testnet or mainnet of your choice (For Mainnet deployment, test the code thoroughly and audit):
 ```bash
-npx hardhat run scripts/deploy.js --network sepolia
+npx hardhat run scripts/deploy.js --network lisk-sepolia
 ```
 
 ### Creating a MultiSig Wallet
 
 The `create-multisig.js` script facilitates the creation of a new MultiSig wallet:
 ```bash
-npx hardhat run scripts/create-multisig.js --network sepolia
+npx hardhat run scripts/create-multisig.js --network lisk-sepolia
 ```
 
 ### Funding a Wallet
 
 To fund a wallet with ERC-20 tokens, use the `fund-multisig.js` script:
 ```bash
-npx hardhat run scripts/fund-multisig.js --network sepolia
+npx hardhat run scripts/fund-multisig.js --network lisk-sepolia
 ```
 
 ### Checking Wallet Balance
 
 Check the balance of tokens in a wallet using the `check-balance.js` script:
 ```bash
-npx hardhat run scripts/check-balance.js --network sepolia
+npx hardhat run scripts/check-balance.js --network lisk-sepolia
 ```
 
 ### Interacting with a Wallet
 
 Execute transactions and manage the wallet with the `interact-multisig.js` script:
 ```bash
-npx hardhat run scripts/interact-multisig.js --network sepolia
+npx hardhat run scripts/interact-multisig.js --network lisk-sepolia
 ```
 
 ### Verifying Contracts
 
 Verify the deployed contracts using the `verify-multisig.js` script:
 ```bash
-npx hardhat run scripts/verify-multisig.js --network sepolia
+npx hardhat run scripts/verify-multisig.js --network lisk-sepolia
 ```
 
 ## Contributing
